@@ -20,14 +20,10 @@ public class OpensearchController {
     }
     @GetMapping(value = "/", produces="application/json;charset=UTF-8" )
     public ResponseEntity<?> search(@RequestHeader Map<String, String> requestEntity){
-        var a = notificationService.findByNotificationContaining(
-                URLDecoder.decode(requestEntity.get("phrase"), StandardCharsets.UTF_8),
-                Long.parseLong(requestEntity.get("chatid")));
-        var b = notificationService.search(
-                URLDecoder.decode(requestEntity.get("phrase"), StandardCharsets.UTF_8),
-                Long.parseLong(requestEntity.get("chatid")));
         return new ResponseEntity<>(
-                b,
+                notificationService.search(
+                        URLDecoder.decode(requestEntity.get("phrase"), StandardCharsets.UTF_8),
+                        Long.parseLong(requestEntity.get("chatid"))),
                 HttpStatus.OK);
     }
 }
