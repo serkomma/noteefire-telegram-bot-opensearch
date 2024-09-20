@@ -3,17 +3,23 @@
     "filter": {
       "russian_stop": {
         "type": "stop",
-        "stopwords": "_russian_"
-      },
-      "russian_keywords": {
-        "type": "keyword_marker",
-        "keywords": [
-          "пример"
-        ]
+        "stopwords": "c"
       },
       "russian_stemmer": {
         "type": "stemmer",
         "language": "russian"
+      },
+      "english_stop": {
+        "type":       "stop",
+        "stopwords":  "a"
+      },
+      "english_stemmer": {
+        "type":       "stemmer",
+        "language":   "english"
+      },
+      "english_possessive_stemmer": {
+        "type":       "stemmer",
+        "language":   "possessive_english"
       }
     },
     "analyzer": {
@@ -22,9 +28,10 @@
         "filter": [
           "lowercase",
           "russian_stop",
-          "russian_keywords",
           "russian_stemmer",
-          "russian_morphology"
+          "english_stop",
+          "english_stemmer",
+          "english_possessive_stemmer"
         ]
       }
     }

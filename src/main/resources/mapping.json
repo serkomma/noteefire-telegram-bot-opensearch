@@ -1,0 +1,17 @@
+{
+  "properties": {
+    "chatid": {
+      "type": "text",
+      "index":"true"
+    },
+    "datetime": {
+      "type": "date",
+      "index":"false"
+    },
+    "notification": {
+      "type": "text",
+      "index":"true",
+      "analyzer": "rebuilt_russian"
+    }
+  }
+}
